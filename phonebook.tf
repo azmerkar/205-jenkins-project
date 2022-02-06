@@ -174,7 +174,7 @@ resource "aws_instance" "docker-machine-leader-manager" {
   iam_instance_profile = aws_iam_instance_profile.ec2ecr-profile.name
   user_data = data.template_file.leader-master.rendered
   tags = {
-    Name = "oliver-Docker-Swarm-Leader-Manager"
+    Name = "mehmet-Docker-Swarm-Leader-Manager"
     server = "docker-grand-master"
     project = "205"
   }
@@ -190,7 +190,7 @@ resource "aws_instance" "docker-machine-managers" {
   count = 2
   user_data = data.template_file.manager.rendered
   tags = {
-    Name = "oliver-Docker-Swarm-Manager-${count.index + 1}"
+    Name = "mehmet-Docker-Swarm-Manager-${count.index + 1}"
     server = "docker-manager-${count.index + 2}"
     project = "205"
   }
@@ -207,7 +207,7 @@ resource "aws_instance" "docker-machine-workers" {
   count = 2
   user_data = data.template_file.worker.rendered
   tags = {
-    Name = "oliver-Docker-Swarm-Worker-${count.index + 1}"
+    Name = "mehmet-Docker-Swarm-Worker-${count.index + 1}"
     server = "docker-worker-${count.index + 1}"
     project = "205"
   }
